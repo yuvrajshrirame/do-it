@@ -1,3 +1,150 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light mode — slightly cool off-white so gradients bleed through */
+    --background: transparent;
+    --foreground: #0f172a;
+    --card: rgba(255, 255, 255, 0.3);
+    --card-foreground: #0f172a;
+    --border: rgba(255, 255, 255, 0.55);
+    --primary: #0f172a;
+    --primary-foreground: #ffffff;
+    --accent: #0ea5e9;
+  }
+
+  .dark {
+    /* Dark mode — deep navy so gradients bleed through */
+    --background: transparent;
+    --foreground: #f0f9ff;
+    --card: rgba(14, 26, 60, 0.35);
+    --card-foreground: #f0f9ff;
+    --border: rgba(255, 255, 255, 0.12);
+    --primary: #f0f9ff;
+    --primary-foreground: #020817;
+    --accent: #38bdf8;
+  }
+}
+
+/* ===================================
+   APPLE LIQUID GLASS SYSTEM
+   Inspired by visionOS / iOS glass
+=================================== */
+@layer utilities {
+
+  /* Primary glass — main cards, modals */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.22) !important;
+    backdrop-filter: blur(40px) saturate(180%) brightness(1.05) !important;
+    -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(1.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.45) !important;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.10),
+      0 2px 8px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+  }
+
+  .dark .glass-card {
+    background: rgba(6, 20, 60, 0.38) !important;
+    border: 1px solid rgba(255, 255, 255, 0.13) !important;
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.35),
+      0 2px 8px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.09) !important;
+  }
+
+  /* Secondary glass — nav, lighter panels */
+  .glass {
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(30px) saturate(160%);
+    -webkit-backdrop-filter: blur(30px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.45);
+  }
+
+  .dark .glass {
+    background: rgba(6, 20, 60, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.07);
+  }
+
+  /* Hover glow effect with cyan rim */
+  .glass-glow {
+    position: relative;
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+  }
+
+  .glass-glow:hover {
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(56, 189, 248, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+  }
+
+  /* Inputs inside glass panels */
+  .glass-input {
+    background: rgba(255, 255, 255, 0.25) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.45) !important;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+  }
+
+  .dark .glass-input {
+    background: rgba(6, 20, 60, 0.45) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  }
+
+  /* Theme-aware custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .dark .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  .dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+body {
+  color: var(--foreground);
+  transition: color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Inter', sans-serif;
+  background: transparent;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+}
