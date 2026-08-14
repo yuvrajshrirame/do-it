@@ -28,12 +28,22 @@ const LandingPage = ({ onGuestLogin, onAuthOpen }) => {
           <span className="text-xl font-bold tracking-tight text-foreground">doit.</span>
         </div>
         
-        <button 
-          onClick={toggleTheme}
-          className="w-9 h-9 rounded-full border border-border/50 flex items-center justify-center text-foreground/60 hover:text-foreground hover:bg-foreground/5 transition-colors hidden sm:flex"
-        >
-          {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-        </button>
+        <div className="flex items-center gap-5">
+          <a 
+            href="https://docs.uraj.dev/doit"
+            target="_blank"
+            rel="noreferrer"
+            className="text-xs sm:text-sm font-semibold tracking-wide text-foreground/60 hover:text-foreground transition-colors"
+          >
+            Explore Docs
+          </a>
+          <button 
+            onClick={toggleTheme}
+            className="w-9 h-9 rounded-full border border-border/50 flex items-center justify-center text-foreground/60 hover:text-foreground hover:bg-foreground/5 transition-colors hidden sm:flex"
+          >
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+        </div>
       </nav>
 
       {/* Main Content Wrapper */}
@@ -59,7 +69,7 @@ const LandingPage = ({ onGuestLogin, onAuthOpen }) => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="flex justify-center items-center gap-6 mb-16"
+          className="flex flex-wrap justify-center items-center gap-4 md:gap-6 mb-16"
         >
           <button 
             onClick={onGuestLogin}
@@ -69,7 +79,7 @@ const LandingPage = ({ onGuestLogin, onAuthOpen }) => {
           </button>
           <button 
             onClick={onAuthOpen}
-            className="px-8 py-3 rounded-xl font-semibold text-sm transition-colors shadow-sm bg-[rgba(255,255,255,0.18)] dark:bg-slate-800/50 backdrop-blur-[20px] border border-[rgba(255,255,255,0.4)] dark:border-white/10 text-inherit"
+            className="px-8 py-3 rounded-xl font-semibold text-sm transition-colors shadow-sm bg-[rgba(255,255,255,0.18)] dark:bg-slate-800/50 backdrop-blur-[20px] border border-[rgba(255,255,255,0.4)] dark:border-white/10 text-inherit hover:bg-[rgba(255,255,255,0.25)] dark:hover:bg-slate-800/70"
           >
             Sign In with Account
           </button>
@@ -289,6 +299,7 @@ const LandingPage = ({ onGuestLogin, onAuthOpen }) => {
         <div className="flex gap-6">
           <a href="https://github.com/yuvrajshrirame/do-it" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">Privacy Policy</a>
           <a href="https://github.com/yuvrajshrirame/do-it" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">Terms of Service</a>
+          <a href="https://docs.uraj.dev/doit" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors font-medium">Documentation</a>
           <a href="https://github.com/yuvrajshrirame/do-it" target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">GitHub</a>
         </div>
       </footer>

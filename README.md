@@ -2,6 +2,8 @@
 
 A beautiful, highly interactive, glassmorphism-inspired habit tracker designed for deep focus and seamless continuity. Built with a "keyboard-first" philosophy and a stunning Apple-inspired Liquid Glass aesthetic, **doit** helps you build streaks, track your progress, and stay in the zone.
 
+> **🚀 Official Documentation:** [docs.uraj.dev/doit](https://docs.uraj.dev/doit) — Read deep dives into the Anonymous-First Auth, robust streak algorithms, and fluid Framer Motion animations that power do.it.
+
 ---
 
 ## 📖 Table of Contents
